@@ -3,22 +3,25 @@ pipeline{
 	
 	stages{
 		stage('Build'){
-			steps:
-			withMaven(maven: 'my_maven'){
+			steps{
+				withMaven(maven: 'my_maven'){
 				sh 'mvn clean compile'
 			}
 		}
+		}
 		stage ('Testing'){
-			steps:
-			withMaven(maven: 'my_maven'){
+			steps{
+				withMaven(maven: 'my_maven'){
 				sh 'mvn test'
 			}
 		}
+		}
 		stage ('Depolyment stage'){
-			steps:
-			withMaven(maven: 'my_maven'){
+			steps{
+				withMaven(maven: 'my_maven'){
 				sh 'mvn deploy'
 			}
+		}
 		}
 	
 	
